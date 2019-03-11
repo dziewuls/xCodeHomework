@@ -26,10 +26,11 @@ public class StatusControllerTest {
 
     @Test
     public void shouldReturnHttpStatusOkAndExpectedStringValue() throws Exception {
-        when(this.statusService.getStatus()).thenReturn("pong");
+        String expectedString = "pong";
+        when(this.statusService.getStatus()).thenReturn(expectedString);
         this.mockMvc
                 .perform(get("/status/ping"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("pong"));
+                .andExpect(content().string(expectedString));
     }
 }
