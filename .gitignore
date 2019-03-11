@@ -13,6 +13,7 @@ homework-back/target/
 
 ### IntelliJ IDEA ###
 homework-back/.idea
+.idea
 *.iws
 *.iml
 *.ipr
