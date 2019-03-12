@@ -1,5 +1,6 @@
 package com.xcode.homeworkback;
 
+import com.xcode.homeworkback.domain.NumbersSorterService;
 import com.xcode.homeworkback.domain.StatusService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,5 +11,10 @@ public class config {
     @Bean
     StatusService statusService() {
         return new StatusService();
+    }
+
+    @Bean
+    NumbersSorterService numbersSorterService() {
+        return new NumbersSorterService();
     }
 }

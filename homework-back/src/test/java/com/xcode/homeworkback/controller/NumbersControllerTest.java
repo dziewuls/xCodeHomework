@@ -10,14 +10,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -91,8 +88,7 @@ public class NumbersControllerTest {
     public void shouldReturnHttpStatusBadRequestWhenNumbersArrayHasWrongFormat() throws Exception {
         mockMvc.perform(post("/numbers/sort-command")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"numbers\":[b, c, d, s, e],\"order\":\"ASC\"}"))
-                .andExpect(status().isBadRequest())
-                .andExpect(content().string("Wrong numbers format"));
+                .content("{\"numbers\":[\"b\", \"c\", \"d\", \"s\", \"e\"],\"order\":\"ASC\"}"))
+                .andExpect(status().isBadRequest());
     }
 }
