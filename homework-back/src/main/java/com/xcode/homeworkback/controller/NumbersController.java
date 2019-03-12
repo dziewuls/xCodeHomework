@@ -27,9 +27,8 @@ public class NumbersController {
                     numbersContainer.getNumbers(),
                     Order.valueOf(numbersContainer.getOrder())
             );
-
         } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
 
         NumbersContainerDto result = new NumbersContainerDto(sortedNumbers, null);
