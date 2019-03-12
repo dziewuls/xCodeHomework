@@ -32,9 +32,9 @@ public class NumbersControllerTest {
 
     @Test
     public void shouldReturnSortedNumbersWithDescendingOrderAndHttpStatusOk() throws Exception {
-        List<Number> givenArray = Arrays.asList(2, 5, 1, 3, 4);
+        List<Integer> givenArray = Arrays.asList(2, 5, 1, 3, 4);
         Order givenOrder = Order.DSC;
-        List<Number> expectedArray = Arrays.asList(5, 4, 3, 2, 1);
+        List<Integer> expectedArray = Arrays.asList(5, 4, 3, 2, 1);
 
         when(this.numbersSorterService.sort(givenArray, givenOrder)).thenReturn(expectedArray);
 
@@ -47,9 +47,9 @@ public class NumbersControllerTest {
 
     @Test
     public void shouldReturnSortedNumbersWithAscendingOrderAndHttpStatusOk() throws Exception {
-        List<Number> givenArray = Arrays.asList(2, 5, 1, 3, 4);
+        List<Integer> givenArray = Arrays.asList(2, 5, 1, 3, 4);
         Order givenOrder = Order.ASC;
-        List<Number> expectedArray = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> expectedArray = Arrays.asList(1, 2, 3, 4, 5);
 
         when(this.numbersSorterService.sort(givenArray, givenOrder)).thenReturn(expectedArray);
 
@@ -62,9 +62,9 @@ public class NumbersControllerTest {
 
     @Test
     public void shouldReturnEmptyNumbersArrayAndHttpStatusOkWhenNumbersArrayIsEmpty() throws Exception {
-        List<Number> givenArray = Collections.emptyList();
+        List<Integer> givenArray = Collections.emptyList();
         Order givenOrder = Order.ASC;
-        List<Number> expectedArray = Collections.emptyList();
+        List<Integer> expectedArray = Collections.emptyList();
 
         when(this.numbersSorterService.sort(givenArray, givenOrder)).thenReturn(expectedArray);
 

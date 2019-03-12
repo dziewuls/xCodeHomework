@@ -20,7 +20,7 @@ public class NumbersController {
 
     @PostMapping("/sort-command")
     public ResponseEntity getSortedNumbers(@RequestBody NumbersContainerDto numbersContainer) {
-        List<Number> sortedNumbers;
+        List<Integer> sortedNumbers;
 
         try {
             sortedNumbers = this.numbersSorterService.sort(

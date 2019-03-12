@@ -14,6 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class NumbersContainerDto {
-    private List<Number> numbers;
+    private List<Integer> numbers;
     private String order;
 }
