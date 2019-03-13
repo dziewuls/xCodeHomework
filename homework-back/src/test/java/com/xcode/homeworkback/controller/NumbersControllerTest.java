@@ -33,7 +33,7 @@ public class NumbersControllerTest {
     @Test
     public void shouldReturnSortedNumbersWithDescendingOrderAndHttpStatusOk() throws Exception {
         List<Integer> givenArray = Arrays.asList(2, 5, 1, 3, 4);
-        Order givenOrder = Order.DSC;
+        Order givenOrder = Order.DESC;
         List<Integer> expectedArray = Arrays.asList(5, 4, 3, 2, 1);
 
         when(this.numbersSorterService.sort(givenArray, givenOrder)).thenReturn(expectedArray);

@@ -6,15 +6,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class NumbersContainerDto {
+public class CurrencyDto {
 
-    private List<Integer> numbers;
-    private String order;
+    private String currency;
+    private Double value;
 }

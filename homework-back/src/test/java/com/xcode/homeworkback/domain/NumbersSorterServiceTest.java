@@ -36,7 +36,7 @@ public class NumbersSorterServiceTest {
         //given
         List<Integer> numbersToSort = Arrays.asList(5, 2, 4, 1, 3);
         List<Integer> expectedNumbers = Arrays.asList(5, 4, 3, 2, 1);
-        Order givenOrder = Order.DSC;
+        Order givenOrder = Order.DESC;
         //when
         List<Integer> result = this.numbersSorterService.sort(numbersToSort, givenOrder);
         //then
