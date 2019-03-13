@@ -62,4 +62,16 @@ public class ExchangeRateFinderServiceTest {
 
         assertThat(result).isEqualTo(expectedValue);
     }
+
+    @Test
+    public void shouldReturnZeroWhenCurrencyIsNull() {
+        when(this.currencyRepository.findAllCurrenciesExchangeRates())
+                .thenReturn(this.currenciesFromRepository);
+
+        Double expectedValue = 0.0;
+
+        Double result = this.exchangeRateFinderService.findExchangeRate(null);
+
+        assertThat(result).isEqualTo(expectedValue);
+    }
 }
