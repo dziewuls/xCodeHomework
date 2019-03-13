@@ -65,9 +65,6 @@ public class ExchangeRateFinderServiceTest {
 
     @Test
     public void shouldReturnZeroWhenCurrencyIsNull() {
-        when(this.currencyRepository.findAllCurrenciesExchangeRates())
-                .thenReturn(this.currenciesFromRepository);
-
         Double expectedValue = 0.0;
 
         Double result = this.exchangeRateFinderService.findExchangeRate(null);
