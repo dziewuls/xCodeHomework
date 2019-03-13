@@ -3,6 +3,8 @@ package com.xcode.homeworkback;
 import com.xcode.homeworkback.domain.ExchangeRateFinderService;
 import com.xcode.homeworkback.domain.NumbersSorterService;
 import com.xcode.homeworkback.domain.StatusService;
+import com.xcode.homeworkback.domain.port.CurrencyRepository;
+import com.xcode.homeworkback.infrastructure.CurrencyNbpClientRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,7 +22,12 @@ public class config {
     }
 
     @Bean
-    ExchangeRateFinderService exchangeRateFinderService() {
-        return new ExchangeRateFinderService();
+    CurrencyRepository currencyRepository() {
+        return new CurrencyNbpClientRepository();
+    }
+
+    @Bean
+    ExchangeRateFinderService exchangeRateFinderService(CurrencyRepository currencyRepository) {
+        return new ExchangeRateFinderService(currencyRepository);
     }
 }
