@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SorterHttpService {
 
-  readonly URL_HOMEWORK_API = 'http://localhost:8080//numbers/sort-command';
+  readonly URL_HOMEWORK_API = 'http://localhost:8080/numbers/sort-command';
 
   constructor(private http: HttpClient) { }
 

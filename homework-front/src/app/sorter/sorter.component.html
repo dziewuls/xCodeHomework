@@ -1,3 +1,24 @@
-<p>
-  sorter works!
-</p>
+<form [formGroup]="numbersForm" (ngSubmit)="submit()">
+  <label class="form-label">
+    <span>Numbers:</span>
+    <input class="form-input" type="text" formControlName="numbers">
+  </label>
+  <label class="form-label">
+    <span>Order:</span>
+    <select class="form-input" type="text" formControlName="order">
+      <option>ASC</option>
+      <option>DESC</option>
+    </select>
+  </label>
+
+  <button appButtonHover class="produs-btn" type="submit">Submit</button>
+  <button appButtonHover class="produs-btn" type="reset">Clear</button>
+</form>
+
+<ng-container *ngIf="areSortedNumbersVisible">
+  <p>Sorted Numbers:
+    <span *ngFor="let number of sortedNumbers.numbers">
+      {{number}}
+    </span>
+  </p>
+</ng-container>

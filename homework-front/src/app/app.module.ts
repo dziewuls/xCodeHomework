@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { SorterComponent } from './sorter/sorter.component';
 import { SorterHttpService } from './services/sorter-http.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { SorterHttpService } from './services/sorter-http.service';
     SorterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [SorterHttpService],
   bootstrap: [HomeComponent]
