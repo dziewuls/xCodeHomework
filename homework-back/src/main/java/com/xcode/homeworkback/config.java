@@ -7,6 +7,7 @@ import com.xcode.homeworkback.domain.port.CurrencyRepository;
 import com.xcode.homeworkback.infrastructure.CurrencyNbpClientRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class config {
@@ -23,7 +24,7 @@ public class config {
 
     @Bean
     CurrencyRepository currencyRepository() {
-        return new CurrencyNbpClientRepository();
+        return new CurrencyNbpClientRepository(new RestTemplate());
     }
 
     @Bean
