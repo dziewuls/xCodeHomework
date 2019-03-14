@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { SorterComponent } from './sorter/sorter.component';
+import { SorterHttpService } from './services/sorter-http.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    HomeComponent,
+    SorterComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [SorterHttpService],
+  bootstrap: [HomeComponent]
 })
 export class AppModule { }
