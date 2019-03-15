@@ -31,7 +31,7 @@ public class CurrencyNbpClientRepository implements CurrencyRepository {
         JsonNode rates = currenciesInJsonFormat.get(0).get("rates");
 
         rates.forEach(c -> {
-            Currency currency = parseJsonToCurrency(c);
+            Currency currency = this.parseJsonToCurrency(c);
             result.add(currency);
         });
 
