@@ -1,24 +1,33 @@
+<ng-container *ngIf="isErrorMessageVisible">
+  <span class="error">{{errorMessage}}</span>
+</ng-container>
+
 <form [formGroup]="numbersForm" (ngSubmit)="submit()">
+
   <label class="form-label">
-    <span>Numbers:</span>
-    <input class="form-input" type="text" formControlName="numbers">
+    <span>Numbers [E.g. "1 2 3"]:</span>
+    <input class="form-input" type="text" formControlName="numbers" (click)="hideError()" (keydown)="hideError()">
   </label>
+
+  <br>
+
   <label class="form-label">
     <span>Order:</span>
     <select class="form-input" type="text" formControlName="order">
-      <option>ASC</option>
+      <option selected>ASC</option>
       <option>DESC</option>
     </select>
   </label>
-
-  <button appButtonHover class="produs-btn" type="submit">Submit</button>
-  <button appButtonHover class="produs-btn" type="reset">Clear</button>
 </form>
 
-<ng-container *ngIf="areSortedNumbersVisible">
-  <p>Sorted Numbers:
+<button class="form-btn" (click)="submit()">Submit</button>
+<button class="form-btn" (click)="reset()">Clear</button>
+
+<p>
+  Sorted Numbers:
+  <ng-container *ngIf="sortedNumbers">
     <span *ngFor="let number of sortedNumbers.numbers">
       {{number}}
     </span>
-  </p>
-</ng-container>
+  </ng-container>
+</p>

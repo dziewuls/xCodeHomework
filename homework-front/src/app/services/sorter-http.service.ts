@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { NumbersContainer } from '../model/numbers-container';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,13 @@ export class SorterHttpService {
   constructor(private http: HttpClient) { }
 
   postNumbersToSort(numbersToSort: NumbersContainer): Observable<any> {
-    return this.http.post(this.URL_HOMEWORK_API, numbersToSort);
+    return this.http
+      .post(this.URL_HOMEWORK_API, numbersToSort)
+      .pipe(catchError(this.handleError));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    return throwError(
+      'Something go wrong. Try again.');
   }
 }

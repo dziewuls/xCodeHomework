@@ -20,18 +20,22 @@ public class NumbersController {
 
     @PostMapping("/sort-command")
     public ResponseEntity getSortedNumbers(@RequestBody NumbersContainerDto numbersContainer) {
-        List<Integer> sortedNumbers;
-
         try {
-            sortedNumbers = this.numbersSorterService.sort(
-                    numbersContainer.getNumbers(),
-                    Order.valueOf(numbersContainer.getOrder())
-            );
+            return new ResponseEntity<>(this.sortNumbers(numbersContainer), HttpStatus.OK);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
+    }
 
-        NumbersContainerDto result = new NumbersContainerDto(sortedNumbers, null);
-        return new ResponseEntity<>(result, HttpStatus.OK);
+    private NumbersContainerDto sortNumbers(NumbersContainerDto numbersContainer) {
+        if (numbersContainer.getOrder() == null)
+            throw new IllegalArgumentException("Order can not be empty.");
+
+        List<Integer> sortedNumbers = this.numbersSorterService.sort(
+                numbersContainer.getNumbers(),
+                Order.valueOf(numbersContainer.getOrder())
+        );
+
+        return new NumbersContainerDto(sortedNumbers, null);
     }
 }
