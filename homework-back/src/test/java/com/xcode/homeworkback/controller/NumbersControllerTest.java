@@ -40,7 +40,7 @@ public class NumbersControllerTest {
 
         mockMvc.perform(post("/numbers/sort-command")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"numbers\":[2, 5, 1, 3, 4],\"order\":\"DSC\"}"))
+                .content("{\"numbers\":[2, 5, 1, 3, 4],\"order\":\"DESC\"}"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{\"numbers\":[5, 4, 3, 2, 1]}"));
     }
